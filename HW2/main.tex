@@ -79,4 +79,65 @@ How wide is the multiplicity function?
 
 Simple: any Gaussian function falls off of its peak at ${\Omega}_{\pi} = \frac{{\Omega}_max}{e}$. Here that value would be defined as the $\frac{2x_{\pi}^2}{N} = 1$ which becomes $x_{\pi} = \sqrt{\frac{N}{2}}$ or the full width of the peak is $\sqrt{2N}$
 
+\subsection*{d}
+How likely are the macrostates of 1 million coin tosses?
+
+Before diving into the specifics: assume that the macrostate $n$H and $N-n$T coin toses can be described simply as: $m = N_H - N_T = N$ 
+
+From recitation a hint was given that:
+\begin{equation*}
+    P_N(m) = {\left( 2 \pi N p q \right)}^{-1/2} e^{- \frac{m - {\leftangle m \rightangle}^2}{8 N p q }}
+\end{equation*}
+
+Which can be reduced trivially to:
+\begin{equation*}
+    = \sqrt{\frac{2}{\pi N}} e^{\frac{-m^2}{2 N}}
+\end{equation*}
+
+Now, the difference between the macro states described are $2,000$ for a macrostate with $501,000$ Heads $C_1$ and $20,000$ for a macrostate with $510,000$ Heads $C_2$. As a result: It is clear that $C_1$ is much more likely to happen, as the height of the magnitude of $C_1$ is below $1/e$ where as $C_2$ is calculated to be above the peak calculated using the reduced equation.
+
+$\therefore$ the case $C_1$ is significantly more likely to happen than that of $C_2$.
+
+\section{Problem 2.23}
+Consider a two state paramagnet with $10^23$ elementary dipoles, with total energy fixed at zero so that exactly half of the dipoles are parallelly aligned and the other half are anitparallelly aligned.
+
+\subsection{a}
+How many microstates accessible witht the macrostate describe.
+\begin{align*}
+    \Omega &= \binom{N}{N/2}
+    &= \frac{N^N e^{-N} \sqrt{2 \pi N}}{{\left( {N/2}^{N/2} e^{-N/2} \sqrt{\pi N} \right)}^2}
+    &= 2^N \sqrt{ \frac{2}{\pi N} } 
+\end{align*}
+Because $N$ is of the order $10^23$ and because there are $2^{10^23}$ and this number is significantly larger than any number that is on the scale of Avagadro's number. Therefore the number of microstates of dipoles being aligned in parallel are about $2^{10^23}$.
+
+\subsection{b}
+Suppose that the microstate of this system changes a billion times per second. How many microstates will the system explore in ten billion years?
+
+The universe is $3 \multiply 10^{17}$, therefore to calculate how many states that this system can traverse if the system suffles randomly every nanosecond is $3 \multiply 10^{24}$ i.e. the number of states that the system will explore
+
+\subsection{c}
+Is it correct to say that, if you wait long enough, a system will eventually be found in every accessible microstate?
+
+The simple answer is no. To expand on this answer, consider that the most generous projected lifetime of a proton is $10^34$ seconds. There are about $10^44$ plank time units in one second. Even if the system would shuffle every plank time unit for the projected life time of a proton; the number of microstates traversed would still be $10^80$. This number is still \textbf{significantly smaller} than the number of possible microstates.
+
+\section*{HW Problem 3}
+A proton has a magnetic moment of $1.396 \frac{e \hbar}{m_p}$. If the magnetic moment is aligned parallel with the z-index (${\mu}_z = \pm \frac{{\mu}_p}{2}$). Treating the proton as a classic paramagnet:
+
+\subsection*{a}
+What is the average magnetic energy if $\vec{B} = -.5 \hat{z}$ in units teslas and the temprature $T = 100K$ on average?
+
+As described in equation \textbf{3.31} of the textbook: A magnetic energy for $N$ dipoles is as follows: 
+\begin{equation*}
+    U = - N \mu B \textrm{tanh} \left( \frac{\mu B}{k_b T} \right)
+\end{equation*}
+
+Now, b calculating that $\mu B ~ 1.4 \multiply 10^{-26} J$ and $k_b T = 1.381 \multiply 10^{21} J$ it is found that the value inside of the hyperbolic function is about $1 \multiply 10^{-5}$. This does not change much after applying the hyperbolic tangent, so the average magnetic energy for protons in the specified magnetic field is about $-1.39 \multiply 10^{-31} \frac{J}{proton}$ 
+
+\subsection*{b}
+What is its magnetic susceptibility under this alignment? 
+
+Assuming constant volume during the application of the magnetic field, the average magnetic susceptibility is $\chi = \frac{-.5}{-1.39 \multiply 10^{-31}}$ or $3.523 \multiply 10^{30}$
+
+\section*{HW Problem 4}
+
 \end{document}
