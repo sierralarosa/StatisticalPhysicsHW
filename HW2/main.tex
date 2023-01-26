@@ -1,0 +1,82 @@
+\documentclass[a4paper,floatfix,nofootinbib]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\graphicspath{ { . } }
+
+\title{Homework 2}
+\author{Sierra LaRosa}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 2.24}
+For a \textit{large} two-state paramagnet the multiplicity function is very sharply peaked about $N_{\uparrow} = N/2$.
+
+\subsection*{a}
+Use stirling's approximation to estimate the height of the peak in the multiplicity function.
+
+First, define the multiplicity function for a two-state paramagnet:
+\begin{equation*}
+    \Omega(N_{\uparrow}) = \binom{N}{N_{\uparrow}}
+\end{equation*}
+
+Which as defined by the textbook in equation (2.7), the following can be concluded:
+\begin{equation*}
+    \Omega_{max} = \frac{N!}{N_{\uparrow} ! N_{\downarrow} ! } 
+\end{equation*}
+And from the definition of $N_{\uparrow}$ it is shown that: $N_{\downarrow} = N - N/2 = N/2$. When using Stirling's approximation ($N! = N^N e^{-N} \sqrt{2 \pi N} $) is used for the previous equation, it is obvious to see that the following is obtained:
+\begin{align*}
+    \Omega_{max} &= \frac{N^N e^{-N} \sqrt{2 \pi N}}{{{N/2}^{N/2} e^{-{N/2}} \sqrt{2 \pi {N/2}}}^2} \\
+    &= \frac{N^N e^{-N} \sqrt{2 \pi N}}{{N/2}^N e^{-N} \pi N} \\
+    &= \frac{N^N e^{-N} \sqrt{2 \pi N}}{\pi N \frac{N^N}{2^N} e^{-N} } \\
+    &= 2^N \frac{ \sqrt{2 \pi N}}{\pi N } \\
+    \therefore \Omega_{max} &= 2^N \frac{ 2 }{\sqrt{ \pi N }}
+\end{align*}
+
+\subsection*{b}
+Use the methods of section 2.4 in the textbook to derive a formula for the multiplicity function fo the multiplicity function in the vicinity fo the peak in terms of $x = N_{\uparrow} - \frac{N}{2}$. And check that the formula agrees with \textbf{Problem 2.24a}'s solution. i.e. {x = 0} 
+
+First, it would be beneficial to describe a parameter about the $N_{\uparrow}$ or $\eta = x + \frac{N}{2}$.
+
+Now using the same idea as described in \textbf{Problem 2.24a}'s solution, the following can be shown.
+\begin{align*}
+   \Omega &= \frac{N!}{\eta ! \left( N - \eta \right) \ ! } \\
+   &= \frac{N!}{\left(x + \frac{N}{2} \right) ! \left( N - \left(x + \frac{N}{2} \right) \right) \ ! } \\
+    &= \frac{N!}{\left(x + \frac{N}{2} \right) ! \left( \frac{N}{2} - x \right) \ ! }
+\end{align*}
+And applying Stirling's approximation:
+\begin{align*}
+    \Omega &= \frac{N^N e^{-N} \sqrt{2 \pi N}}{ \left(x + \frac{N}{2}\right)^\left(x + \frac{N}{2}\right) e^{-\left(x + \frac{N}{2}\right)} \sqrt{2 \pi \left(x + \frac{N}{2}\right)} \times \left( \frac{N}{2} - x \right)^\left( \frac{N}{2} - x \right) e^{-\left( \frac{N}{2} - x \right)} \sqrt{2 \pi \left( \frac{N}{2} - x \right)} } \\
+    &= \frac{N^N}{{\left( x + \frac{N}{2} \right)}^{x + \frac{N}{2}} \multiply {\left( \frac{N}{2} - x \right)}^{ \frac{N}{2} - x } } \multiply \sqrt{\frac{N}{2 \pi \left(x + \frac{N}{2} \right) \left( \frac{N}{2} - x \right) }} \\
+    &= \frac{N^N}{{\left( x + \frac{N}{2} \right)}^{x + \frac{N}{2}} \multiply {\left( \frac{N}{2} - x \right)}^{ \frac{N}{2} - x } } \multiply \sqrt{\frac{N}{2 \pi \left( \frac{N^2}{4} - x^2 \right) }} \\
+    &= \frac{N^N}{{\left( x + \frac{N}{2} \right)}^{\frac{N}{2}} \multiply {\left( x + \frac{N}{2} \right)}^{x} \multiply {\left( \frac{N}{2} - x \right)}^{ \frac{N}{2} } \multiply {\left( \frac{N}{2} - x \right)}^{ -x } } \multiply \sqrt{\frac{N}{2 \pi \left( \frac{N^2}{4} - x^2 \right) }} \\
+    &= \frac{N^N}{{\left( x + \frac{N}{2} \right)}^{\frac{N}{2}} \multiply {\left( x + \frac{N}{2} \right)}^{x} \multiply {\left( \frac{N}{2} - x \right)}^{ \frac{N}{2} } \multiply {\left( \frac{N}{2} - x \right)}^{ -x } } \multiply \sqrt{\frac{N}{2 \pi \left( \frac{N^2}{4} - x^2 \right) }} \\
+    \ln{\Omega} &= N\ln(N) - \frac{N}{2} \ln \left[ \frac{N^2}{4} - x^2 \right] - x \ln \left[ x + \frac{N}{2} \right] + x \ln \left[ \frac{N}{2} - x \right] + \ln \sqrt{\frac{N}{2 \pi}} - \frac{1}{2} \ln \left(\frac{N^2}{4} - x^2 \right)
+\end{align*}
+Now it would be beneficial to the solution that the subsititutions:
+\begin{align*}
+    ln \left[ {\frac{N}{2}}^2 - x^2 \right] &= \ln \left( { \frac{N}{2} }^2 \right) + \ln  \left[ 1 - {\left( \frac{2x}{N} \right)}^2 \right]
+    &= 2 \ln \left( \frac{N}{2} \right) + {\left( \frac{2x}{N} \right)}^2
+\end{align*}
+, and
+\begin{align*} 
+    ln \left[ \frac{N}{2} \pm \right] &= \ln \left( \frac{N}{2} \right) + \ln \left( 1 \pm \frac{2x}{N} \right)
+    &= \ln \left( \frac{N}{2} \right) \pm \frac{2x}{N}
+\end{align*}
+(The precident for these jumps is dictated in the work done in the set of equations 2.19 in the textbook).
+Now pluggin in the previous subsititutions in to the previous work:
+\begin{align*}
+    \ln \Omega &= N \ln N \ - \ N \ln \frac{N}{2} \ + \ \frac{2 x^2}{N} - x \ln \frac{N}{2} - \frac{2 x^2}{N} + x \ln \frac{N}{2} - \frac{2 x^2}{N} + \ln \sqrt{\frac{N}{2 \pi}} - \ln \frac{N}{2} + \frac{2 x^2}{N^2}
+    &= N \ln 2 \ + \ \frac{2 x^2}{N} + \ln \sqrt{\frac{N}{2 \pi}} + \frac{2 x^2}{N^2}
+    \therefore \Omega &= 2^N \sqrt{\frac{2}{\pi N}} e^{2x^2 / N}
+\end{align*}
+This results in a Gaussian function as described in the textbook. And as $x \rightarrow 0$ the closer the answer to \textbf{Problem 2.24a} matches with this result!
+
+\subsection*{c}
+How wide is the multiplicity function?
+
+Simple: any Gaussian function falls off of its peak at ${\Omega}_{\pi} = \frac{{\Omega}_max}{e}$. Here that value would be defined as the $\frac{2x_{\pi}^2}{N} = 1$ which becomes $x_{\pi} = \sqrt{\frac{N}{2}}$ or the full width of the peak is $\sqrt{2N}$
+
+\end{document}
